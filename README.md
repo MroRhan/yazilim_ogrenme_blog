@@ -3,27 +3,27 @@
 <strong>Ekran Görüntüleri:</strong>
 
 
-Anasayfa 
+<strong>Anasayfa</strong>
 <img src="http://mrorhan.com/blog/1.jpg" width="100%">  
 <hr><br>
-Blog Sayfası
+<strong>Blog Sayfası</strong>
 <img src="http://mrorhan.com/blog/2.jpg" width="100%">  
 <hr><br>
-Detay Sayfası
+<strong>Detay Sayfası</strong>
 <img src="http://mrorhan.com/blog/3.jpg" width="100%">
 <hr><br>
-İletişim Formu Sayfası
+<strong>İletişim Formu Sayfası</strong>
 <img src="http://mrorhan.com/blog/4.jpg" width="100%"> 
 <hr><br>
-Admin Paneli Anasayfa
+<strong>Admin Paneli Anasayfa</strong>
 <img src="http://mrorhan.com/blog/a1.jpg" width="100%"> 
 <hr><br>
-Admin Paneli Kullanıcı Sayfası
+<strong>Admin Paneli Kullanıcı Sayfası</strong>
 <img src="http://mrorhan.com/blog/a2.jpg" width="100%">  
 <hr><br>
-Admin Paneli Yazı Listesi
+<strong>Admin Paneli Yazı Listesi</strong>
 <img src="http://mrorhan.com/blog/a3.jpg" width="100%">
 <hr><br>
-Admin Paneli Kategori Listesi
+<strong>Admin Paneli Kategori Listesi</strong>
 <img src="http://mrorhan.com/blog/a4.jpg" width="100%"> 
 
