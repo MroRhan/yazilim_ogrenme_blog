@@ -1,0 +1,68 @@
+﻿@using yazilim_ogrenme_blog.Models
+@using PagedList
+@using PagedList.Mvc
+
+@model PagedList.IPagedList<Yorumlar>
+
+
+@{
+    ViewBag.Title = "Yorumlar";
+    Layout = "~/Views/Shared/_Yonetim.cshtml";
+
+}
+
+<table class="table text-center">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Kullanıcı Ad</th>
+            <th scope="col">Yazı Başlık</th>
+            <th scope="col">Yorum</th>
+            <th scope="col">Aktif</th>
+            <th>İşlem</th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+        @foreach (var yorum in Model.OrderBy(c => c.Durum).ToList())
+        {
+            <tr>
+                <th width="20px" scope="row">@yorum.ID</th>
+                <td width="170px">@yorum.Kulanici.Kullanici_ad</td>
+                <td width="200px">@yorum.Yazi.Baslik</td>
+                <td width="50%">@yorum.Icerik</td>
+
+                <td width="250px">
+
+                    @if (yorum.Durum == true)
+                    {<a href="/Yonetim/YorumPasif/@yorum.ID"> <button class="btn btn-success btn-sm w-50"> Onaylı </button> </a> }
+                    else
+                    { <a href="/Yonetim/YorumAktif/@yorum.ID"> <button class="btn btn-danger btn-sm w-50">Yorum Onayla </button> </a>}
+
+
+                </td>
+
+                
+                <td >
+                    <a href="/Yonetim/YorumSil/@yorum.ID"><button class="btn btn-primary btn-sm ">Yorum Sil</button> </a>
+
+
+
+
+
+                </td>
+            </tr>
+        }
+
+
+
+    </tbody>
+
+</table>
+
+<div class="center">
+
+    @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Yorumlar", new { sayfa }))
+
+</div>

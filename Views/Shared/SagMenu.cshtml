@@ -1,0 +1,99 @@
+﻿@using yazilim_ogrenme_blog.Models
+@using yazilim_ogrenme_blog.Models.Managers
+
+
+    <div class="col-md-4 sagSlider">
+
+        <div class="sagbaslik bg-dark p-3 text-white ">KATEGORİLER</div>
+
+        <div class="sagicerik p-3">
+             
+                @{
+                    DatabaseContext db = new DatabaseContext();
+                }
+                @{ List<Kategoriler> kategori = db.Kategoriler.Where(m => m.Durum == true).ToList();}
+                @{ List<Yazilar> yzii = db.Yazilar.Where(m => m.Durum == true).ToList();}
+
+
+            <div class="list-group" id="list-tab" role="tablist">
+
+
+
+
+                @foreach (var item in kategori)
+                {
+
+                <a href="/Blog/Kategori/@item.ID" class="list-group-item list-group-item-action" href="#list-home">
+                  
+
+                    <li class="  d-flex justify-content-between align-items-center">
+                        @item.Baslik
+                        <span class="badge badge-primary  badge-pill">@(yzii.Where(c => c.Kategori.ID == item.ID).Count())</span>
+                    </li>
+
+                              
+                            </a>
+
+
+                    
+
+
+
+                }
+            </div>
+    </div>
+
+
+    <div class="sagbaslik bg-dark p-3 text-white ">SON YAZILAR</div>
+    <hr />
+    <div class="sagicerik p-3">
+
+        <div class="list-group" id="list-tab" role="tablist">
+            @{ List<Yazilar> yazi = db.Yazilar.OrderByDescending(c => c.ID).Where(m => m.Durum == true).Take(5).ToList();}
+
+            @foreach (var item in yazi)
+            {
+                <li class="  d-flex justify-content-between align-items-center">
+                    <a href="/Blog/Detay/@item.ID" class="list-group-item list-group-item-action"> @item.Baslik </a>
+                </li>
+            }
+        </div>
+    </div>
+
+
+    <div class="sagbaslik bg-dark p-3 text-white ">SON YORUMLAR</div>
+    <hr />
+    <div class="sagicerik p-3">
+
+        <ul>
+            @{ List<Yorumlar> yorum = db.Yorumlar.OrderByDescending(c => c.ID).Where(m => m.Durum == true).Take(5).ToList();}
+
+            @foreach (var item in yorum)
+            {
+                <strong>@item.Kulanici.Kullanici_ad</strong>
+                <p>@item.Icerik</p>
+            }
+        </ul>
+    </div>
+
+
+    <div class="sagbaslik bg-dark p-3 text-white ">SOSYAL MEDYA</div>
+    <hr />
+    <div class="sagicerik p-3">
+
+        <ul>
+            <li>
+                Facebook
+            </li>
+            <li>
+                Twitter
+            </li>
+            <li>
+                Instagram
+            </li>
+        </ul>
+    </div>
+
+
+
+</div>

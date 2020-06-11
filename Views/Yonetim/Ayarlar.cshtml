@@ -1,0 +1,32 @@
+﻿@model yazilim_ogrenme_blog.Models.Ayarlar
+@{
+    ViewBag.Title = "Ayarlar";
+    Layout = "~/Views/Shared/_Yonetim.cshtml";
+}
+
+
+
+
+
+<form class="form-group" method="post">
+
+ 
+        <div class="form-group">
+            <label>Hakkımızda Sayfası</label>
+            <textarea id="@Model.ID" name="Hakkimizda">@Model.Hakkimizda</textarea>
+            <script>
+                CKEDITOR.replace('Hakkimizda');
+            </script>
+        </div>
+    
+
+
+
+
+
+    <div class="mt-5">
+        <button class="btn btn-info">Güncelle</button>
+    </div>
+
+
+</form>

@@ -1,0 +1,148 @@
+﻿@using yazilim_ogrenme_blog.ViewModel.Anasayfa
+@model KayitOlModel
+
+@if (User.IsInRole("0"))
+{
+    Response.Redirect("/Anasayfa/Index");
+}
+else if (User.IsInRole("1"))
+{
+    Response.Redirect("/Anasayfa/Index");
+}
+
+
+@{
+    Layout = "~/Views/Shared/_Anasayfa.cshtml";
+}
+
+
+
+<link href="~/Content/LoginRegister.css" rel="stylesheet" />
+
+
+
+<br />
+<br />
+<div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="card">
+            <h4 class="card-header">Kayıt Formu</h4>
+            <div class="card-body">
+
+
+
+
+
+                @using (Html.BeginForm())
+                {
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Kullanıcı Adınız</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-address-card"></i></span>
+                                    </div>
+                                    @Html.TextBoxFor(model => model.Kullanici, new { @class = "form-control" })
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Adınız</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    </div>
+                                    @Html.TextBoxFor(model => model.Ad, new { @class = "form-control" })
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Soyadınız</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="far fa-user"></i></span>
+                                    </div>
+                                    @Html.TextBoxFor(model => model.Soyad, new { @class = "form-control" })
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>E-posta Adresniz</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                    </div>
+                                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Parola</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-unlock" aria-hidden="true"></i></span>
+                                    </div>
+                                    @Html.TextBoxFor(model => model.Parola, new { @class = "form-control", type = "password" })
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Parola Tekrar</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                                    </div>
+                                    @Html.TextBoxFor(model => model.RParola, new { @class = "form-control", type = "password" })
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Kayıt Ol</button>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+                }
+
+
+
+
+                @Html.ValidationSummary(false)
+
+
+            </div>
+
+
+
+        </div>
+    </div>
+</div>

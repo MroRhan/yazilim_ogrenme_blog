@@ -1,0 +1,84 @@
+﻿@using yazilim_ogrenme_blog.Models
+@using yazilim_ogrenme_blog.Models.Managers
+
+
+<div class="col-md-4 sagSlider">
+
+    <div class="sagbaslik bg-dark p-3 text-white ">SOSYAL MEDYA</div>
+    <hr />
+    <div class="sagicerik p-3">
+        <ul>
+            <li>
+                Facebook
+            </li>
+            <li>
+                Twitter
+            </li>
+            <li>
+                Instagram
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="sagbaslik bg-dark p-3 text-white ">SON YAZILAR</div>
+    <hr />
+    <div class="sagicerik p-3">
+
+        <ul class="list-group">
+            @{
+
+
+                DatabaseContext db = new DatabaseContext();
+
+            }
+            @{ List<Kategoriler> kategori = db.Kategoriler.ToList();}
+
+            @foreach (var item in kategori)
+            {
+                <p>@item.Baslik</p>
+            }
+
+
+        </ul>
+    </div>
+
+
+    <div class="sagbaslik bg-dark p-3 text-white ">SON YORUMLAR</div>
+    <hr />
+    <div class="sagicerik p-3">
+
+        <ul>
+            <li>
+                Facebook
+            </li>
+            <li>
+                Twitter
+            </li>
+            <li>
+                Instagram
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="sagbaslik bg-dark p-3 text-white ">ÇOK OKUNANLAR</div>
+    <hr />
+    <div class="sagicerik p-3">
+
+        <ul>
+            <li>
+                Facebook
+            </li>
+            <li>
+                Twitter
+            </li>
+            <li>
+                Instagram
+            </li>
+        </ul>
+    </div>
+
+
+
+</div>

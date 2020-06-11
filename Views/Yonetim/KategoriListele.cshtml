@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Kategori Listele";
+    Layout = "~/Views/Shared/_Yonetim.cshtml";
+}
+
+ 
+
+<table class="table text-left">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th width="80%" scope="col">Kategori</th>
+ 
+            <th scope="col">İşlem</th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+        @foreach (var kategori in Model.Kategoriler)
+        {
+            <tr>
+                <th scope="row">@kategori.ID</th>
+                <td>@kategori.Baslik</td>
+                <td>
+
+                    <a href="/Yonetim/KategoriGuncelle/@kategori.ID"><button class="btn btn-primary btn-sm ">Düzenle</button> </a>
+                    <a href="/Yonetim/KategoriSil/@kategori.ID"><button class="btn btn-danger btn-sm ">Sil</button> </a>
+
+                </td>
+            </tr>
+        }
+
+
+
+    </tbody>
+</table>

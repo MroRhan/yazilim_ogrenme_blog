@@ -1,0 +1,64 @@
+﻿@using yazilim_ogrenme_blog.ViewModel.Yonetim
+@model YaziEkleModel
+
+
+@{
+    ViewBag.Title = "Yeni Yazı Ekle";
+    Layout = "~/Views/Shared/_Yonetim.cshtml";
+}
+
+
+<form class="form-group" method="post" enctype="multipart/form-data">
+    <div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>Başlık</label>
+                @Html.TextBoxFor(model => model.Baslik, new {@class = "form-control", @required="true",@autocomplete="off"})
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>İçerik</label>
+                @Html.TextAreaFor(model => model.Icerik, new { @class = "form-control", @required = "true", @autocomplete = "off" })
+                
+                <script>
+                    CKEDITOR.replace('Icerik');
+                </script>
+
+
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Kategori Seçiniz</label>
+                
+                @Html.DropDownListFor(m => m.Kategori.ID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Yazı Resmi</label>
+               
+                <input type="file" name="yaziResim" id="yaziResim" required value="" />
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mt-5">
+        <button class="btn btn-info">Yazı Ekle</button>
+    </div>
+
+
+    <p class="mt-5">
+        @if (ViewBag.gelenHata != null)
+        {
+            <div class="alert alert-danger" role="alert">
+                @Html.Raw(ViewBag.gelenHata)
+            </div>
+        }
+
+
+    </p>
+
+</form>

@@ -1,0 +1,74 @@
+﻿@using yazilim_ogrenme_blog.Models
+@using PagedList
+@using PagedList.Mvc
+
+@model PagedList.IPagedList<Kullanicilar>
+
+
+@{
+    ViewBag.Title = "Kullanıcı Listele";
+    Layout = "~/Views/Shared/_Yonetim.cshtml";
+
+}
+ 
+<table class="table text-center">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Kullanıcı Ad</th>
+            <th scope="col">Ad Soyad</th>
+            <th scope="col">Yetki</th>
+            <th scope="col">Aktif</th>
+            <th scope="col">Üyelik Tarihi</th>
+            <th>İşlem</th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+        @foreach (var kullanici in Model.OrderByDescending(c => c.Yetki).ToList())
+        {
+            <tr>
+                <th scope="row">@kullanici.ID</th>
+                <td>@kullanici.Kullanici_ad</td>
+                <td>@kullanici.Ad  @kullanici.Soyad</td>
+                <td>
+                    @if (kullanici.Yetki == 1)
+                    {<p class="text-info font-weight-bold">Yönetici</p> }
+                    else
+                    { <p class="text-secondary font-weight-bold">Üye</p>}
+                </td>
+
+                <td>
+
+                    @if (kullanici.Durum == true)
+                    {<a href="/Yonetim/KullaniciPasif/@kullanici.ID"> <button class="btn btn-danger btn-sm w-50"> Pasif Yap</button> </a> }
+                    else
+                    { <a href="/Yonetim/KullaniciAktif/@kullanici.ID"> <button class="btn btn-success btn-sm w-50">Aktif Yap </button> </a>}
+
+
+                </td>
+
+                <td>@kullanici.Uyelik_Tarih</td>
+                <td>
+                    <a href="/Yonetim/KullaniciGuncelle/@kullanici.ID"><button class="btn btn-primary btn-sm ">Düzenle</button> </a>
+
+
+
+
+
+                </td>
+            </tr>
+        }
+
+
+
+    </tbody>
+
+</table>
+
+<div class="center">
+
+    @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("KullaniciListele", new { sayfa }))
+
+    </div>

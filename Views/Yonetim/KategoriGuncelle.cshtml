@@ -1,0 +1,24 @@
+﻿@model yazilim_ogrenme_blog.Models.Kategoriler
+
+@{
+    ViewBag.Title = "Kategori Güncelle";
+    Layout = "~/Views/Shared/_Yonetim.cshtml";
+}
+
+ 
+
+
+
+
+<form class="form-group" method="post">
+    <div>
+        <label>Kategori Başlık</label>
+        <input type="text" class="form-control" id="@Model.ID" value="@Model.Baslik" name="Baslik" />
+    </div>
+
+    <div class="mt-5">
+        <button class="btn btn-info">Güncelle</button>
+    </div>
+
+
+</form>

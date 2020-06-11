@@ -1,0 +1,236 @@
+﻿body {
+    background-color: rgba(221, 221, 221, 0.10);
+}
+
+.headarSosyal{
+    color:aliceblue;
+}
+
+.headarSosyal a{
+    color: lightgrey;
+    text-decoration:none;
+}
+
+
+.headarSosyal a:hover{
+    color: white;
+    
+}
+
+
+.validation-summary-errors {
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    margin-top:15px;
+}
+
+
+#altAlan {
+    bottom: 0px;
+    background-color: black;
+    height: 100px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 40px;
+    margin-top:50px;
+}
+
+
+#girisYap {
+    display:table;
+    margin-bottom: 160px;
+    position: relative;
+    vertical-align: middle;
+}
+
+.headerLogo {
+    background: url(../Images/logo.png) no-repeat 1vw center;
+    background-size:30%;
+    height:80px;
+    display:flex;
+    flex-direction:row;
+    justify-content:flex-end;
+}
+
+.headerLogo a{
+     color:white;
+     margin: 0.1rem;
+}
+
+
+.headerSocial {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+ 
+}
+
+.headerSocial a {
+    color: black;
+    margin: 0.1rem;
+        
+}
+
+
+
+
+#menu {
+    background-color:#121111;
+    height:50px;
+    margin-top:10px;
+   
+}
+
+    #menu ul {
+        display: inline-flex;
+        list-style: none;
+        color: white;
+        height: 50px;
+        margin-left: -50px;
+    }
+
+        #menu ul li {
+            padding: 12px;
+            vertical-align: middle;
+        }
+
+
+            #menu ul li a {
+                text-decoration: none;
+                color: white;
+            }
+
+
+
+    #menu li:hover {
+        background-color: white;
+    }
+
+        #menu li:hover a {
+            color: black;
+        }
+
+ 
+ul.pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+
+}
+
+ul.pagination li {
+    display: inline;
+}
+
+    ul.pagination li a {
+        color: black;
+        float: left;
+        padding: 8px 16px;
+        text-decoration: none;
+    }
+
+    ul.pagination li.active a {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    ul.pagination li a:hover:not(.active) {
+        background-color: #ddd;
+    }
+
+    ul.pagination li a {
+        border: 1px solid #ddd; /* Gray */
+    }
+
+    ul.pagination li a {
+        margin: 0 4px; /* 0 is for top and bottom. Feel free to change it */
+    }
+
+div.center {
+    text-align: center;
+}
+
+.tekliYazi {
+    background: white;
+    color: black;
+    padding: 15px;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+.tekliYazi p{
+    text-align: justify;
+}
+
+.sagSlider {
+ 
+    padding: 15px;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+.card {
+    padding: 10px;
+
+}
+
+
+.col-md-8 {
+    padding-left: 0px;
+}
+
+
+#hakkimizda {
+    display: table;
+    margin-bottom: 160px;
+    position: relative;
+    vertical-align: middle;
+}
+
+
+.arama {
+    float: right;
+    padding: 6px;
+
+}
+
+
+@media screen and (max-width: 992px) {
+    .arama {
+        visibility: hidden;
+        clear: both;
+        float: right;
+        margin: 5px auto;
+        
+        height: auto;
+        display: none;
+        
+    }
+
+}
+
+
+
+@media screen and (max-width: 576px) {
+
+    #menu ul li a span {
+        visibility: hidden;
+        clear: both;
+        float: right;
+        margin: 5px auto;
+        height: auto;
+        display: none;
+    }
+}
+
+
+

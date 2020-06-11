@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Hakkımızda";
+    Layout = "~/Views/Shared/_Anasayfa.cshtml";
+}
+
+
+
+<div class="container mt-3">
+    <div class="row">
+
+        <div class="col-md-12" id="hakkimizda">
+
+
+
+            <div class="tekliYazi">
+            
+                <p class="mb-5">
+
+                    <img width="100%" src="~/Images/hakkimizda.jpg"
+
+                    @foreach (var item in Model)
+                    {
+                    <p>@Html.Raw(item.Hakkimizda)</p>
+                }
+
+
+                    </p>
+                </div>
+        </div>
+
+
+
+    </div>
+</div>
+

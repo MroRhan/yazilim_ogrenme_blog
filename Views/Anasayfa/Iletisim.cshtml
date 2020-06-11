@@ -1,0 +1,122 @@
+﻿@using yazilim_ogrenme_blog.ViewModel.Anasayfa
+@model IletisimModel
+
+@{
+    ViewBag.Title = "Iletisim";
+    Layout = "~/Views/Shared/_Anasayfa.cshtml";
+}
+
+
+
+
+<div class="container mt-5">
+    <div class="row">
+
+        <div class="col-md-12 mt-4 mb-5" >
+
+
+ 
+                    <div class="container h-100">
+                        <div class="row h-100 justify-content-center align-items-center">
+                            <div class="card">
+                                <h4 class="card-header">İletişim Formu</h4>
+                                <div class="card-body">
+
+
+
+
+
+                                    @using (Html.BeginForm())
+                                    {
+
+
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Adınız</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                                        </div>
+                                                        @Html.TextBoxFor(model => model.Ad, new { @class = "form-control" })
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Soyadınız</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text"><i class="far fa-user"></i></span>
+                                                        </div>
+                                                        @Html.TextBoxFor(model => model.Soyad, new { @class = "form-control" })
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>E-posta Adresniz</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                                        </div>
+                                                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Mesajınız</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text"><i class="fas fa-comment-dots"></i></span>
+                                                        </div>
+                                                        @Html.TextAreaFor(model => model.Mesaj, new { @class = "form-control",rows=5 })
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <button type="submit" class="btn btn-primary btn-lg btn-block">Mesaj Gönder</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="clear"></div>
+                                    }
+
+
+                                    <p>@Html.Raw(TempData["message"])</p>
+
+                                    @Html.ValidationSummary(false)
+
+
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+  
+        </div>
+
+
+
+    </div>
+</div>
+

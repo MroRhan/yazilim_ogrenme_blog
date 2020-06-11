@@ -1,0 +1,58 @@
+﻿@using yazilim_ogrenme_blog.ViewModel.Anasayfa
+@model GirisYapModel
+
+
+@if (User.IsInRole("1"))
+{
+    Response.Redirect("/Anasayfa/Index");
+}
+else if (User.IsInRole("1"))
+{
+    Response.Redirect("/Anasayfa/Index");
+}
+
+
+@{
+    Layout = "~/Views/Shared/_Anasayfa.cshtml";
+}
+
+<link href="~/Content/LoginRegister.css" rel="stylesheet" />
+
+<br />
+<br />
+<div class="container h-100 ">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="card">
+            <h5 class="card-header"><i class="fas fa-directions"></i> Giriş Sayfasına Yönlendiriliyorsunuz.. </h5>
+            <div class="card-body">
+
+
+
+                <div class="row">
+
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="/Anasayfa/GirisYap" type="submit" class="btn btn-success btn-lg btn-block"><i class="fas fa-thumbs-up"></i> Kayıt Başarılı!</a>
+                    </div>
+                </div>
+
+                <div class="clear"></div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(function () {
+        setTimeout(function () {
+            window.location = "/Anasayfa/GirisYap";
+        }, 2000)
+    });
+
+</script>
+

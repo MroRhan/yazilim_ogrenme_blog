@@ -1,0 +1,111 @@
+﻿@using yazilim_ogrenme_blog.Models
+
+@model Yazilar
+ 
+ 
+
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_Anasayfa.cshtml";
+}
+
+
+
+<div class="container mt-3">
+    <div class="row">
+
+        <div class="col-md-8 ">
+            <div class="tekliYazi">
+                <img src="~/Images/Post/@Model.Resim" height="370px" width="100%" class="mb-3" />
+
+                <h2>@Model.Baslik</h2>
+
+                <span class="text-muted  font-weight-light float-left mt-2"><strong><i class="fas fa-user"></i> </strong> @(Model.Kullanici.Kullanici_ad)</span>
+                <span class="text-muted  font-weight-light float-left ml-3 mt-2"><strong><i class="fas fa-clock"></i> </strong> @(Model.Tarih.ToShortDateString())</span>
+                <span class="text-muted  font-weight-light float-left ml-3 mt-2"><strong><i class="far fa-comment"></i></strong> @(Model.Yorumlar.Where(m => m.Durum == true).Count()) Yorum</span>
+
+                <hr class="mt-5" />
+                <p>@Html.Raw(Model.Icerik)</p>
+
+
+            </div>
+
+
+
+            @if (User.IsInRole("0"))
+            {
+                // Response.Redirect("/Anasayfa/Index");
+                <form method="post" action="">
+                    <div class="form-group mt-3">
+                        <label for="Icerik"><strong>Yorumunuz:</strong></label>
+                        <textarea class="form-control" id="Icerik" name="Icerik" rows="3"></textarea>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block mt-1">Yorum Gönder</button>
+                    </div>
+                </form>
+
+            }
+            else if (User.IsInRole("1"))
+            {
+                // Response.Redirect("/Anasayfa/Index");
+                <form method="post" action="">
+                    <div class="form-group mt-3">
+                        <label for="Icerik"><strong>Yorumunuz:</strong></label>
+                        <textarea class="form-control" id="Icerik" name="Icerik" rows="3"></textarea>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block mt-1">Yorum Gönder</button>
+                    </div>
+                </form>
+
+            }
+            else
+            {
+                <p class="text-center mt-3 text-danger"><a href="/Anasayfa/GirisYap">Yorum Yazmak İçin Giriş Yapınız!</a></p>
+            }
+
+
+
+
+            <p>
+                @if (TempData["message"] != null)
+                {
+                    <div class="alert alert-success" role="alert">
+                        @Html.Raw(TempData["message"])
+                    </div>
+                }
+
+
+
+
+                @Html.ValidationSummary(false)
+            </p>
+
+
+            <ul class="list-unstyled mt-5">
+                @foreach (var item in Model.Yorumlar.OrderByDescending(c => c.ID).Where(m => m.Durum == true).ToList())
+                {
+                    <li class="media">
+                        <img src="~/Images/avatar.png" width="75px" class="mr-3" alt="...">
+                        <div class="media-body">
+                            <h6>@(item.Kulanici.Ad + " " + item.Kulanici.Soyad)</h6>
+                            @item.Icerik
+                        </div>
+                    </li>
+                    <hr />
+                }
+
+
+            </ul>
+
+        </div>
+
+     
+
+        @Html.Partial("SagMenu")
+
+    </div>
+
+
+</div>
+
+
+
+

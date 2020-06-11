@@ -1,0 +1,25 @@
+﻿@model yazilim_ogrenme_blog.Models.Kategoriler
+
+@{
+    ViewBag.Title = "Kategori Ekle";
+    Layout = "~/Views/Shared/_Yonetim.cshtml";
+}
+ 
+
+<form class="form-group" method="post">
+    <div>
+        <label>Kategori Başlık</label>
+        @Html.TextBoxFor(m => m.Baslik, new { @class = "form-control" })
+  
+    </div>
+
+    <div class="mt-5">
+        <button class="btn btn-info">Kategori Ekle</button>
+    </div>
+
+
+</form>
+
+
+
+@Html.ValidationSummary(false)

@@ -1,0 +1,55 @@
+﻿@using yazilim_ogrenme_blog.Models
+@using PagedList
+@using PagedList.Mvc
+@model  PagedList.IPagedList<Yazilar>
+
+
+
+@{
+    Layout = "~/Views/Shared/_Yonetim.cshtml";
+}
+
+
+<table class="table  text-center">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Başlık</th>
+            <th scope="col">Resim</th>
+            <th scope="col">Yazar</th>
+            <th scope="col">Kategori</th>
+            <th scope="col">Tarih</th>
+            <th scope="col">İşlem</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        
+        
+        @foreach (var yazilar in Model.ToList())
+        {
+            <tr>
+                <th scope="row">@yazilar.ID</th>
+                <td width="20%">@yazilar.Baslik</td>
+                <td width="30%">
+                   <img src="~/Images/Post/@yazilar.Resim" width="40%" />
+                </td>
+                <td>@yazilar.Kullanici.Kullanici_ad</td>
+                <td>@yazilar.Kategori.Baslik</td>
+                <td width="5%">@yazilar.Tarih</td>
+                <td><a href="/Yonetim/YaziGuncelle/@yazilar.ID"><button class="btn btn-primary btn-sm ">Düzenle</button> </a> <a href="/Yonetim/YaziSil/@yazilar.ID"><button class="btn btn-danger btn-sm w-25">Sil</button></a> </td>
+
+            </tr>
+        }
+
+
+
+    </tbody>
+</table>
+
+
+<div class="center">
+
+    @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("YaziListele", new { sayfa }))
+
+</div>
