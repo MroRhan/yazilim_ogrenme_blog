@@ -1,6 +1,6 @@
-# ASP.NET MVC Blog Sitesi
+# ASP.NET MVC Blog Sitesi | GRUP NO : 37
 
-GRUP NO : 37
+
 
 <strong>Ekran Görüntüleri:</strong>
 
